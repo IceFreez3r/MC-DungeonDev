@@ -1,0 +1,46 @@
+direction                    ,rotation            ,mirror ,origin X ,origin Z ,min X ,min Z
+north                        ,0                   ,no     ,-l       ,         ,-l    ,
+north                        ,90                  ,no     ,         ,-l       ,-p    ,-l
+north                        ,180                 ,no     ,+l       ,         ,-r    ,-p
+north                        ,270                 ,no     ,         ,+l       ,      ,-r
+north                        ,0                   ,yes    ,-l       ,         ,-l    ,-p
+north                        ,90                  ,yes    ,         ,-l       ,      ,-l
+north                        ,180                 ,yes    ,+l       ,         ,-r    ,
+north                        ,270                 ,yes    ,         ,+l       ,-p    ,-r
+east                         ,0                   ,no     ,-p       ,-l       ,-p    ,-l
+east                         ,90                  ,no     ,+l       ,-p       ,-r    ,-p
+east                         ,180                 ,no     ,+p       ,+l       ,      ,-r
+east                         ,270                 ,no     ,-l       ,+p       ,-l    ,
+east                         ,0                   ,yes    ,-p       ,+l       ,-p    ,-r
+east                         ,90                  ,yes    ,-l       ,-p       ,-l    ,-p
+east                         ,180                 ,yes    ,+p       ,-l       ,      ,-l
+east                         ,270                 ,yes    ,+l       ,+p       ,-r    ,
+south                        ,0                   ,no     ,-r       ,-p       ,-r    ,-p
+south                        ,90                  ,no     ,+p       ,-r       ,      ,-r
+south                        ,180                 ,no     ,+r       ,+p       ,-l    ,
+south                        ,270                 ,no     ,-p       ,+r       ,-p    ,-l
+south                        ,0                   ,yes    ,-r       ,+p       ,-r    ,
+south                        ,90                  ,yes    ,-p       ,-r       ,-p    ,-r
+south                        ,180                 ,yes    ,+r       ,-p       ,-l    ,-p
+south                        ,270                 ,yes    ,+p       ,+r       ,      ,-l
+west                         ,0                   ,no     ,         ,-r       ,      ,-r
+west                         ,90                  ,no     ,+r       ,         ,-l    ,
+west                         ,180                 ,no     ,         ,+r       ,-p    ,-l
+west                         ,270                 ,no     ,-r       ,         ,-r    ,-p
+west                         ,0                   ,yes    ,         ,+r       ,      ,-l
+west                         ,90                  ,yes    ,-r       ,         ,-r    ,
+west                         ,180                 ,yes    ,         ,-r       ,-p    ,-r
+west                         ,270                 ,yes    ,+r       ,         ,-l    ,-p
+
+Patterns:
+180° swaps sign
+90°                          ,axis + sign for Z→X
+
+Mirror
+North: l equal
+East: p equal                ,l swaps sign
+South: r equal               ,p swaps sign
+West: r swaps sign
+
+East = West with l ↔ r + p
+South = North with l ↔ r + p

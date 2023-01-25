@@ -1,0 +1,74 @@
+{
+    "levels": [
+        {
+            "level_swap_weigths": [
+                [19, 1, 2],
+                [5, 15, 0],
+                [1, 0, 19]
+            ]
+        }
+    ],
+    "rooms": [
+        {
+            "name": "snowy_room",
+            "level": 0,
+            "sub_level": 0,
+            "min_depth": 2,
+            "doors": [
+                {
+                    "direction": 0,
+                    "left": 2,
+                    "right": 3,
+                    "up": 4,
+                    "down": 5,
+                    "perpendicular": 8
+                },
+                {
+                    "direction": 1,
+                    "left": 5,
+                    "right": 3,
+                    "up": 4,
+                    "down": 5,
+                    "perpendicular": 5
+                }
+            ]
+        },
+        {
+            "name": "true_ice_room",
+            "level": 0,
+            "sub_level": 1,
+            "min_depth": 2,
+            "doors": [
+                {
+                    "direction": 0,
+                    "left": 2,
+                    "right": 3,
+                    "up": 4,
+                    "down": 5,
+                    "perpendicular": 8
+                },
+                {
+                    "direction": 1,
+                    "left": 5,
+                    "right": 3,
+                    "up": 4,
+                    "down": 5,
+                    "perpendicular": 5
+                }
+            ]
+        },
+        {
+            "name": "completely_different_level_room",
+            "level": 1,
+            "min_depth": 1,
+            "doors": {
+                "direction": "north",
+                "left": 2,
+                "right": 3,
+                "up": 4,
+                "down": 5,
+                "perpendicular": 5
+            }
+        }
+    ]
+}

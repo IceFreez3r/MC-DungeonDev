@@ -17,5 +17,5 @@ scoreboard players operation .tmp_direction dg.build /= #90 constant
 scoreboard players operation @s dg.door.direction += .tmp_direction dg.build
 scoreboard players operation @s dg.door.direction %= #4 constant
 execute if score .debug dg.options matches 1 run tellraw @a [{"text": "New Direction ", "color": "blue"}, {"score": {"name": "@s", "objective": "dg.door.direction"}, "color": "blue"}] 
-function s:build/door/set_name
+function s:build/set_door_name
 tag @s add dg.active

@@ -6,5 +6,5 @@ kill @e[type=marker,tag=dg.door.placeholder]
 
 scoreboard players add .try dg.build 1
 execute if score .try dg.build < .tries dg.options run kill @e[type=marker,tag=dg.new]
-execute if score .try dg.build < .tries dg.options run function s:build/room/loop
-execute if score .try dg.build >= .tries dg.options run function s:build/room/deadend/start
+execute if score .try dg.build < .tries dg.options run function s:build/loop
+execute if score .try dg.build >= .tries dg.options run function s:build/deadend

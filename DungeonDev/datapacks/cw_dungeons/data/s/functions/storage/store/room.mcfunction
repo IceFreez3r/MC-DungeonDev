@@ -3,10 +3,6 @@
 
 # UUID
 data modify entity @s data.room.uuid set from entity @s UUID
-execute store result score .uuid0 dg.storage run data get entity @s UUID[0]
-execute store result score .uuid1 dg.storage run data get entity @s UUID[1]
-execute store result score .uuid2 dg.storage run data get entity @s UUID[2]
-execute store result score .uuid3 dg.storage run data get entity @s UUID[3]
 # Name
 data modify entity @s data.room.name set from entity @s data.CustomName
 # Roomsettings

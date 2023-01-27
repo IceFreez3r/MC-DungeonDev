@@ -17,25 +17,25 @@ scoreboard players set .minX dg.build 0
 scoreboard players set .minY dg.build 0
 scoreboard players set .minZ dg.build 0
 
-execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 0 run function s:build/room/lowest_corner/front_left
-execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 270 run function s:build/room/lowest_corner/front_left
-execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 180 run function s:build/room/lowest_corner/front_left
-execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 90 run function s:build/room/lowest_corner/front_left
+execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 0 run function s:build/placement/lowest_corner/front_left
+execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 270 run function s:build/placement/lowest_corner/front_left
+execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 180 run function s:build/placement/lowest_corner/front_left
+execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 90 run function s:build/placement/lowest_corner/front_left
 
-execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 270 run function s:build/room/lowest_corner/front_right
-execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 180 run function s:build/room/lowest_corner/front_right
-execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 90 run function s:build/room/lowest_corner/front_right
-execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 0 run function s:build/room/lowest_corner/front_right
+execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 270 run function s:build/placement/lowest_corner/front_right
+execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 180 run function s:build/placement/lowest_corner/front_right
+execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 90 run function s:build/placement/lowest_corner/front_right
+execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 0 run function s:build/placement/lowest_corner/front_right
 
-execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 180 run function s:build/room/lowest_corner/back_right
-execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 90 run function s:build/room/lowest_corner/back_right
-execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 0 run function s:build/room/lowest_corner/back_right
-execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 270 run function s:build/room/lowest_corner/back_right
+execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 180 run function s:build/placement/lowest_corner/back_right
+execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 90 run function s:build/placement/lowest_corner/back_right
+execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 0 run function s:build/placement/lowest_corner/back_right
+execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 270 run function s:build/placement/lowest_corner/back_right
 
-execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 90 run function s:build/room/lowest_corner/back_left
-execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 0 run function s:build/room/lowest_corner/back_left
-execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 270 run function s:build/room/lowest_corner/back_left
-execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 180 run function s:build/room/lowest_corner/back_left
+execute if score @s dg.door.direction matches 0 if score .rotation_tmp dg.build matches 90 run function s:build/placement/lowest_corner/back_left
+execute if score @s dg.door.direction matches 1 if score .rotation_tmp dg.build matches 0 run function s:build/placement/lowest_corner/back_left
+execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build matches 270 run function s:build/placement/lowest_corner/back_left
+execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 180 run function s:build/placement/lowest_corner/back_left
 
 # x, z = z, x
 execute if score .mirror dg.build matches 1 run scoreboard players operation .tmp dg.build = .minX dg.build
@@ -47,7 +47,7 @@ scoreboard players operation .minX dg.build += .doorX dg.build
 scoreboard players operation .minY dg.build += .doorY dg.build
 scoreboard players operation .minZ dg.build += .doorZ dg.build
 
-execute if score .debug dg.options matches 1 run tellraw @a [{"text": "min: ", "color": "dark_gray"}, {"score": {"name": ".minX", "objective": "dg.build"}}, {"text": ", ", "color": "dark_gray"}, {"score": {"name": ".minY", "objective": "dg.build"}},{"text": ", ", "color": "dark_gray"}, {"score": {"name": ".minZ", "objective": "dg.build"}}]
+execute if score .debug dg.options matches 1 run tellraw @a [{"text": "min: ", "color": "blue"}, {"score": {"name": ".minX", "objective": "dg.build"}}, {"text": ", ", "color": "blue"}, {"score": {"name": ".minY", "objective": "dg.build"}},{"text": ", ", "color": "blue"}, {"score": {"name": ".minZ", "objective": "dg.build"}}]
 
 summon marker ~ ~ ~ {Tags:["dg", "dg.min_corner", "dg.active", "dg.new"], data:{CustomName: '{"text":"Min Corner"}'}}
 execute store result entity @e[type=marker,tag=dg.min_corner,tag=dg.new,limit=1] Pos[0] double 1.0 run scoreboard players get .minX dg.build

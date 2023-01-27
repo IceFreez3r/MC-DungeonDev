@@ -9,5 +9,5 @@ scoreboard players operation in1 dg = .global dg.id
 function s:general/rng/range
 
 # find corresponding room
-function s:build/room/choose/select
+function s:build/choose/room/select
 tag @e[type=marker,tag=dg.not_this] remove dg.not_this

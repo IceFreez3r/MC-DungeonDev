@@ -12,7 +12,6 @@ execute store result entity @s data.room.max int 1.0 run scoreboard players get 
 execute store result entity @s data.room.min_depth int 1.0 run scoreboard players get @s dg.min_depth
 # Doors
 data remove entity @s data.room.doors
-# TODO: exclude doors marked as exit
 execute at @e[type=marker,tag=dg.current_room,tag=!dg.door.exit] run data modify entity @s data.room.doors append from entity @e[type=marker,tag=dg.current_room,sort=nearest,limit=1] data.door
 tag @e[type=marker,tag=dg.current_room] remove dg.current_room
 # Write to storage

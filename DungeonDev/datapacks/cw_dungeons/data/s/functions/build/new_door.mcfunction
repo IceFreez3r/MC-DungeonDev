@@ -1,4 +1,4 @@
-execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/room/new_door"}
+execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/new_door"}
 execute store result score .doorX dg.build run data get entity @s Pos[0]
 execute store result score .doorY dg.build run data get entity @s Pos[1]
 execute store result score .doorZ dg.build run data get entity @s Pos[2]

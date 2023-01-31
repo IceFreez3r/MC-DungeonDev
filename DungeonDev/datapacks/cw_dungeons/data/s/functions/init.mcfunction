@@ -1,11 +1,13 @@
 scoreboard objectives add math dummy
 scoreboard objectives add dg dummy
 scoreboard objectives add dg.id dummy
-# global options that are read only for the datapack
+# global options that are read-only for the datapack
 scoreboard objectives add dg.options dummy
 # holds the data for the current run
 scoreboard objectives add dg.build dummy
+scoreboard objectives add dg.editor dummy
 scoreboard objectives add dg.level dummy
+scoreboard objectives add dg.sublevel dummy
 scoreboard objectives add dg.depth dummy
 scoreboard objectives add dg.min_depth dummy
 scoreboard objectives add dg.weight dummy
@@ -39,7 +41,7 @@ scoreboard players set #32 constant 32
 function s:general/rng/zprivate/init
 
 # total number of levels, randomly chosen, set .level to use a specific level
-scoreboard players set .levels dg.options 1
+scoreboard players set .levels dg.options 2
 # whether to use a set seed, also requires .seed to function
 # the seed without a set seed can be found in .seed of dg.build
 # note that the layout of the dungeons depends on the order that rooms are placed
@@ -49,3 +51,5 @@ scoreboard players set .seeded dg.options 1
 scoreboard players set .tries dg.options 1
 # tons of debug output if used
 scoreboard players set .debug dg.options 1
+
+function s:storage/init

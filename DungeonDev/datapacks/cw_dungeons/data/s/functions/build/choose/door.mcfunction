@@ -1,4 +1,4 @@
-execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/door/choose"}
+execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/choose/door"}
 # assign a unique number to each door
 scoreboard players set .global dg.id 0
 execute as @e[type=marker,tag=dg.door.options] store result score @s dg.id run scoreboard players add .global dg.id 1

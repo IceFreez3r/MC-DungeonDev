@@ -1,4 +1,6 @@
-execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/room/loop"}
+execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/loop"}
+# choose a random sublevel based on the transition weights of the previous room
+function s:build/choose/sublevel/start
 # choose a random room based on their weights
 function s:build/choose/room/start
 execute if score .debug dg.options matches 1 if entity @e[type=marker,tag=dg.room.choice] run tellraw @p [{"text": "Found room: ", "color": "blue"}, {"selector": "@e[type=marker,tag=dg.room.choice]", "color": "blue"}]

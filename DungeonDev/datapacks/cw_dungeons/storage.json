@@ -1,19 +1,22 @@
 {
     "levels": [
-        {
-            "level_swap_weigths": [
-                [19, 1, 2],
-                [5, 15, 0],
-                [1, 0, 19]
-            ]
-        }
+        [
+            [19, 1, 2],
+            [5, 15, 0],
+            [1, 0, 19]
+        ],
+        [
+            [19, 1],
+            [1, 0]
+        ]
     ],
     "rooms": [
         {
             "name": "snowy_room",
-            "level": 0,
-            "sub_level": 0,
+            "level": 1,
+            "sublevel": 1,
             "min_depth": 2,
+            "weight": 1,
             "doors": [
                 {
                     "direction": 0,
@@ -21,7 +24,8 @@
                     "right": 3,
                     "up": 4,
                     "down": 5,
-                    "perpendicular": 8
+                    "perpendicular": 8,
+                    "sublevel": 1
                 },
                 {
                     "direction": 1,
@@ -29,15 +33,17 @@
                     "right": 3,
                     "up": 4,
                     "down": 5,
-                    "perpendicular": 5
+                    "perpendicular": 5,
+                    "sublevel": 1
                 }
             ]
         },
         {
             "name": "true_ice_room",
-            "level": 0,
-            "sub_level": 1,
+            "level": 1,
+            "sublevel": 2,
             "min_depth": 2,
+            "weight": 1,
             "doors": [
                 {
                     "direction": 0,
@@ -45,7 +51,8 @@
                     "right": 3,
                     "up": 4,
                     "down": 5,
-                    "perpendicular": 8
+                    "perpendicular": 8,
+                    "sublevel": 2
                 },
                 {
                     "direction": 1,
@@ -53,21 +60,25 @@
                     "right": 3,
                     "up": 4,
                     "down": 5,
-                    "perpendicular": 5
+                    "perpendicular": 5,
+                    "sublevel": 2
                 }
             ]
         },
         {
             "name": "completely_different_level_room",
-            "level": 1,
+            "level": 3,
+            "sublevel": 1,
             "min_depth": 1,
+            "weight": 1,
             "doors": {
                 "direction": "north",
                 "left": 2,
                 "right": 3,
                 "up": 4,
                 "down": 5,
-                "perpendicular": 5
+                "perpendicular": 5,
+                "sublevel": 1
             }
         }
     ]

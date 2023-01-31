@@ -7,8 +7,12 @@ tag @e[type=marker] add dg.inactive
 function s:build/air_template
 
 # if a level is specified, use it, otherwise choose a random level
-execute if score .level dg.options matches 0.. run scoreboard players operation .level dg.build = .level dg.options
-execute unless score .level dg.options matches 0.. run function s:build/choose/level
+execute if score .level dg.options matches 1.. run scoreboard players operation .level dg.build = .level dg.options
+execute unless score .level dg.options matches 1.. run function s:build/choose/level
+
+# load the transition matrix for the chosen level
+scoreboard players operation .level dg.storage = .level dg.build 
+function s:storage/load/transitions/matrix
 
 # load all rooms from the chosen level
 function s:storage/load/rooms/start

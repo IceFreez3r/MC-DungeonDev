@@ -1,4 +1,4 @@
-execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/room/random_mirror"}
+execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/placement/mirror"}
 # 0 = no mirror, 1 = mirror (left_right)
 scoreboard players set in dg 0
 scoreboard players set in1 dg 1

@@ -1,6 +1,8 @@
 execute if score .debug dg.options matches 1 run tellraw @a {"text": "storage/load/door"}
 # Name
 data modify entity @s data.CustomName set from entity @s data.door.name
+# Sublevel
+execute store result score @s dg.sublevel run data get entity @s data.door.sublevel
 # Direction
 execute store result score @s dg.door.direction run data get entity @s data.door.direction
 execute store result score @s dg.door.perpendicular run data get entity @s data.door.perpendicular

@@ -2,6 +2,7 @@ execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/room
 kill @e[type=marker,tag=dg.new]
 kill @e[type=marker,tag=dg.door.options]
 tag @e[type=marker,tag=dg.room.choice] remove dg.room.choice
+tag @e[type=marker,tag=dg.current_sublevel] remove dg.current_sublevel
 kill @e[type=marker,tag=dg.door.placeholder]
 
 scoreboard players add .try dg.build 1

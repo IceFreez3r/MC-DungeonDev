@@ -1,7 +1,7 @@
-execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/room/choose/start"}
+execute if score .debug dg.options matches 1 run tellraw @a {"text": "build/choose/room/start"}
 # assign a unique number to each room based on the weight
 scoreboard players set .global dg.id 0
-execute as @e[type=marker,tag=dg.valid] store result score @s dg.id run scoreboard players operation .global dg.id += @s dg.weight
+execute as @e[type=marker,tag=dg.current_sublevel] store result score @s dg.id run scoreboard players operation .global dg.id += @s dg.weight
 
 # select random number
 scoreboard players set in dg 1

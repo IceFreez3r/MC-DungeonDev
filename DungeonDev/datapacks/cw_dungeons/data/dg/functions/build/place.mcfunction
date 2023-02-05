@@ -8,5 +8,6 @@ scoreboard players operation .sublevel dg.storage = @s dg.sublevel
 function dg:storage/load/transitions/sublevel/start
 scoreboard players set .try dg.build 0
 function dg:build/loop
-tag @s remove dg.door.open
 tag @e[type=marker,tag=dg.valid] remove dg.valid
+# Remove closed door
+kill @s

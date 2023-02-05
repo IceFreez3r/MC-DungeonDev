@@ -1,4 +1,4 @@
-execute if score .debug dg.options matches 1 run tellraw @a {"text":"dungeons/flag_new_door"}
+execute if score .debug dg.options matches 1 run tellraw @a {"text":"build/flag_new_door"}
 function dg:storage/load/door
 # mark all doors as open except the one that connects to the previous room
 execute unless entity @e[type=marker,tag=dg.door.placeholder,distance=..1] run tag @s add dg.door.open

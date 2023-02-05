@@ -12,3 +12,6 @@ scoreboard players set .tries dg.options 10
 
 # tons of debug output if used
 scoreboard players set .debug dg.options 0
+
+# the maximum depth of the dungeon, set to -1 for infinite
+scoreboard players set .maxdepth dg.options -1

@@ -5,9 +5,5 @@ execute as @e[type=marker,tag=dg.room.choice] at @e[type=marker,tag=dg.origin] r
 tag @e[type=marker,tag=dg.new] remove dg.new
 kill @e[type=marker,tag=dg.door.options]
 kill @e[type=marker,tag=dg.origin]
-tag @e[type=marker,tag=dg.room.choice] remove dg.room.choice
 tag @e[type=marker,tag=dg.current_sublevel] remove dg.current_sublevel
 kill @e[type=marker,tag=dg.door.placeholder]
-
-scoreboard players add @e[type=marker,tag=dg.room.choice] dg.placed 1
-execute if score @s dg.placed >= @s dg.max run kill @s

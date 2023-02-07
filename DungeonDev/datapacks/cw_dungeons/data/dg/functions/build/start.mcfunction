@@ -20,7 +20,9 @@ function dg:storage/load/rooms/start
 scoreboard players set @e[type=marker,tag=dg.room,tag=dg.active] dg.placed 0
 
 execute if score .seeded dg.options matches 1 if score .seed dg.options matches -2147483647..2147483647 run scoreboard players operation #lcg dg = .seed dg.options
-execute if score .seeded dg.options matches 1 run scoreboard players operation .seed dg.build = #lcg dg
+execute if score .seeded dg.options matches 1 unless score .seed dg.options matches -2147483647..2147483647 run scoreboard players operation .seed dg.build = #lcg dg
+execute if score .seeded dg.options matches 0 run scoreboard players operation .seed dg.build = #lcg dg
+
 scoreboard players set .rotation dg.build 0
 scoreboard players set .mirror dg.build 0
 scoreboard players set .depth dg.build 0

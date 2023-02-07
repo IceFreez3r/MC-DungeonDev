@@ -4,4 +4,5 @@ execute if score @s dg.door.direction matches 1 facing ~1 ~ ~ run function dg:du
 execute if score @s dg.door.direction matches 2 facing ~ ~ ~-1 run function dg:dungeons/deadend
 execute if score @s dg.door.direction matches 3 facing ~-1 ~ ~ run function dg:dungeons/deadend
 
-kill @e[type=marker,tag=dg.door.placeholder,distance=..1]
+# Doormarker is at .5 coordinates, placeholder at .0 coordinates -> distance might be >1
+kill @e[type=marker,tag=dg.door.placeholder,distance=..2]

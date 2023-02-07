@@ -30,19 +30,15 @@ execute if score @s dg.door.direction matches 2 run scoreboard players operation
 execute if score @s dg.door.direction matches 3 run scoreboard players operation .originZ dg.build -= .right dg.build
 
 # x, z = -z, x
-execute if score .rotation dg.build matches 90 run scoreboard players operation .tmp dg.build = .originX dg.build
-execute if score .rotation dg.build matches 90 run scoreboard players operation .originX dg.build = .originZ dg.build
+execute if score .rotation dg.build matches 90 run scoreboard players operation .originX dg.build >< .originZ dg.build
 execute if score .rotation dg.build matches 90 run scoreboard players operation .originX dg.build *= #-1 constant
-execute if score .rotation dg.build matches 90 run scoreboard players operation .originZ dg.build = .tmp dg.build
 
 # x, z = -x, -z
 execute if score .rotation dg.build matches 180 run scoreboard players operation .originX dg.build *= #-1 constant
 execute if score .rotation dg.build matches 180 run scoreboard players operation .originZ dg.build *= #-1 constant
 
 # x, z = z, -x
-execute if score .rotation dg.build matches 270 run scoreboard players operation .tmp dg.build = .originX dg.build
-execute if score .rotation dg.build matches 270 run scoreboard players operation .originX dg.build = .originZ dg.build
-execute if score .rotation dg.build matches 270 run scoreboard players operation .originZ dg.build = .tmp dg.build
+execute if score .rotation dg.build matches 270 run scoreboard players operation .originX dg.build >< .originZ dg.build
 execute if score .rotation dg.build matches 270 run scoreboard players operation .originZ dg.build *= #-1 constant
 
 # convert to absolute coordinates

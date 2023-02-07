@@ -38,9 +38,7 @@ execute if score @s dg.door.direction matches 2 if score .rotation_tmp dg.build 
 execute if score @s dg.door.direction matches 3 if score .rotation_tmp dg.build matches 180 run function dg:build/placement/lowest_corner/back_left
 
 # x, z = z, x
-execute if score .mirror dg.build matches 1 run scoreboard players operation .tmp dg.build = .minX dg.build
-execute if score .mirror dg.build matches 1 run scoreboard players operation .minX dg.build = .minZ dg.build
-execute if score .mirror dg.build matches 1 run scoreboard players operation .minZ dg.build = .tmp dg.build
+execute if score .mirror dg.build matches 1 run scoreboard players operation .minX dg.build >< .minZ dg.build
 
 # convert to absolute coordinates
 scoreboard players operation .minX dg.build += .doorX dg.build

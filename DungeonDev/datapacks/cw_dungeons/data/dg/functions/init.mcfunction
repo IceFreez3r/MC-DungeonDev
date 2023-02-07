@@ -22,6 +22,8 @@ scoreboard objectives add dg.door.perpendicular dummy
 scoreboard objectives add dg.door.direction dummy
 scoreboard objectives add dg.storage dummy
 scoreboard objectives add dg.measure dummy
+# counts runs to delete old rooms even if they were in unloaded chunks when clearing
+scoreboard objectives add dg.run dummy
 
 scoreboard objectives add constant dummy
 

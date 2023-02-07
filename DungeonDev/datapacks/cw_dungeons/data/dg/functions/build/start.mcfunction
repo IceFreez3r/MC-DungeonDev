@@ -1,5 +1,5 @@
 execute if score .debug dg.options matches 1 run tellraw @a {"text":"build/start"}
-function dg:build/clear
+function dg:build/stop
 scoreboard players set .ongoing_run dg.build 1
 # mark other markers to prevent interference
 tag @e[type=marker] add dg.inactive

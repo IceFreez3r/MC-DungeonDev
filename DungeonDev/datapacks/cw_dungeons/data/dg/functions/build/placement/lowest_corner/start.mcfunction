@@ -53,3 +53,4 @@ summon marker ~ ~ ~ {Tags:["dg", "dg.min_corner", "dg.active", "dg.new"], data:{
 execute store result entity @e[type=marker,tag=dg.min_corner,tag=dg.new,limit=1] Pos[0] double 1.0 run scoreboard players get .minX dg.build
 execute store result entity @e[type=marker,tag=dg.min_corner,tag=dg.new,limit=1] Pos[1] double 1.0 run scoreboard players get .minY dg.build
 execute store result entity @e[type=marker,tag=dg.min_corner,tag=dg.new,limit=1] Pos[2] double 1.0 run scoreboard players get .minZ dg.build
+scoreboard players operation @e[type=marker,tag=dg.min_corner,tag=dg.new,limit=1] dg.run = .current dg.run

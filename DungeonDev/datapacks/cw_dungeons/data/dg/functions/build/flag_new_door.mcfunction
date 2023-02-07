@@ -18,6 +18,7 @@ tag @s add dg.active
 # set depth to previous depth + 1
 scoreboard players operation @s dg.depth = .depth dg.build
 scoreboard players add @s dg.depth 1
+scoreboard players operation .max_depth dg.statistics > @s dg.depth
 # if depth > max depth, close the door
 execute if score .maxdepth dg.options matches 0.. if score @s dg.depth > .maxdepth dg.options run function dg:build/deadend
 execute if score .maxdepth dg.options matches 0.. if score @s dg.depth > .maxdepth dg.options run kill @s

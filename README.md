@@ -31,7 +31,9 @@ This logic results in something like a tree.
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 
-Download the demo world. To see how it works run `/function dg:build/_demo` to see how it generates. You can also run `/function dg:build/_demo_last` to rebuild the same dungeon.
+Download the demo world. Before you can use the datapack, you need to execute [this](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/measure/generate.py) python script by calling `python generate.py` in a terminal in [that folder](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/measure/). This will generate about 65k files for a decision tree that I use to check the required space. I could include them in the directory directly, but they would massively slow down all Git operations in the repo. Would be awesome if minecraft would allow variables in the `execute blocks` command, but it doesn't.
+
+To then see how the datapack works, open the world and run `/function dg:build/_demo` to see how it generates. You can also run `/function dg:build/_demo_last` to rebuild the same dungeon.
 
 The world has two demo levels that are randomly chosen. The first level has a yellow floor, the second a green. Both levels have two sublevels in white and black. The sublevels have different probabilities of appearing in the two levels, but you will see that yourself.
 <!-- markdownlint-enable -->

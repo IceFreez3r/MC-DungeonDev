@@ -8,7 +8,8 @@ scoreboard players set .levels dg.options 1
 scoreboard players set .seeded dg.options 0
 
 # number of tries to find a room that fits before a door is marked as a deadend
-scoreboard players set .tries dg.options 10
+# higher numbers mean less deadends, but also a higher performance cost
+scoreboard players set .tries dg.options 3
 
 # tons of debug output if used
 scoreboard players set .debug dg.options 0

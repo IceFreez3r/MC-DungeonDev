@@ -1,6 +1,7 @@
 execute if score .debug dg.options matches 1 run tellraw @a {"text":"build/flag_new_door"}
 function dg:storage/load/door
 tag @s add dg.door.open
+scoreboard players operation @s dg.run = .current dg.run 
 execute if score .debug dg.options matches 1 run tellraw @a [{"text": "Direction ", "color": "blue"}, {"score": {"name": "@s", "objective": "dg.door.direction"}, "color": "blue"}, {"text": " Rotation ", "color": "blue"}, {"score": {"name": ".rotation", "objective": "dg.build"}, "color": "blue"}, {"text": " Mirror ", "color": "blue"}, {"score": {"name": ".mirror", "objective": "dg.build"}, "color": "blue"}] 
 # set direction of new door
 # if .mirror: new direction = (2 - old direction) % 4

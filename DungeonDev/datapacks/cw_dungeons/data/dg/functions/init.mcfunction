@@ -24,6 +24,8 @@ scoreboard objectives add dg.storage dummy
 scoreboard objectives add dg.measure dummy
 # counts runs to delete old rooms even if they were in unloaded chunks when clearing
 scoreboard objectives add dg.run dummy
+# repeat clear tries after delay if the marker is loaded, but not the entire room
+scoreboard objectives add dg.cooldown dummy
 scoreboard objectives add dg.statistics dummy
 
 scoreboard objectives add constant dummy

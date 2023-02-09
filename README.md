@@ -31,7 +31,7 @@ This logic results in something like a tree.
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 
-Download the demo world. Before you can use the datapack, you need to execute [this](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/measure/generate.py) python script by calling `python generate.py` in a terminal in [that folder](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/measure/). This will generate about 65k files for a decision tree that I use to check the required space. I could include them in the directory directly, but they would massively slow down all Git operations in the repo. Would be awesome if minecraft would allow variables in the `execute blocks` command, but it doesn't.
+Go to the [release page](https://github.com/IceFreez3r/MC-DungeonDev/releases/latest) and either download the demo world or only the datapack for use in your own world.
 
 To then see how the datapack works, open the world and run `/function dg:build/_demo` to see how it generates. You can also run `/function dg:build/_demo_last` to rebuild the same dungeon.
 
@@ -41,18 +41,18 @@ The world has two demo levels that are randomly chosen. The first level has a ye
 
 ## Settings ⚙️
 
-To change the general settings how the dungeon is generated, see [this function](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/first_init.mcfunction). You can modify them with `/scoreboard players set .<setting> dg.options <value>`.
+To change the general settings how the dungeon is generated, see [this function](./data/dg/functions/first_init.mcfunction). You can modify them with `/scoreboard players set .<setting> dg.options <value>`.
 
 ## Adding your own level
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 
 To add your own level, follow these steps. You can skip this if you just want to add rooms to the existing levels.
-1. Create a new folder in [dg:dungeons/](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/) with the name of your level.
+1. Create a new folder in [dg:dungeons/](./data/dg/functions/dungeons/) with the name of your level.
 1. In the folder create a new empty names.mcfunction file and deadend.mcfunction file (if you want to handle deadends).
-1. In [dg:dungeons/place.mcfunction](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/place.mcfunction#L5) add a new line that calls your levels names.mcfunction file.
-1. In [dg:dungeons/root.mcfuntion](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/root.mcfunction#L3) add a new line. Change the name of the marker to the one that is associated with your root.
-1. Add a new line in [dg:dungeons/deadend.mcfunction](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/deadend.mcfunction) if you want to handle deadends.
+1. In [dg:dungeons/place.mcfunction](./data/dg/functions/dungeons/place.mcfunction#L5) add a new line that calls your levels names.mcfunction file.
+1. In [dg:dungeons/root.mcfuntion](./data/dg/functions/dungeons/root.mcfunction#L3) add a new line. Change the name of the marker to the one that is associated with your root.
+1. Add a new line in [dg:dungeons/deadend.mcfunction](./data/dg/functions/dungeons/deadend.mcfunction) if you want to handle deadends.
 1. Ingame run `/scoreboard players add .levels dg.options 1` to let the datapack know that you added a new level.
 
 After you added some rooms to your level (see [Adding your own room](#adding-your-own-room)), you can run `/scoreboard players set .level dg.options <your level number>` to force the level in every run, which makes it easier to test and debug.
@@ -109,10 +109,32 @@ To add a room, which follows these rules, follow these steps.
 1. The doors will now automatically be measured by calculating the left, right, up, down and perpendicular (the one rectangular to the door through the room) block distances from each of the doors. 
 1. The other settings are `level` and `sublevel` which are a pool and subpool the room is in. (see [Levels](#adding-your-own-level)), `weight` which biases the room if its placable, `max` which is how many can be placed (0=infinite), `max_depth` is how far from the start it will be placeable.
 1. After you are done editing the room, enable entities in the structure block and save the structure. Make sure that none of the doors have their name visible. The names come from armorstands, that are just for debugging, but they shouldn't appear in the final structure.
-1. Go to the [dg:dungeons/\<your level name>](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/) folder and create a new .mcfunction file for your structure. Take one of the [existing files](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/demo/quad.mcfunction) as a reference. Make sure that you have all eight combinations of `.rotation` and `.mirror`.
-1. Go to the `names.mcfunction` file in your level folder and place a command just like in [dg:dungeons/demo/names.mcfunction](./DungeonDev/datapacks/cw_dungeons/data/dg/functions/dungeons/demo/names.mcfunction) referencing the marker name as you put it with the name of the new function you just created. 
+1. Go to the [dg:dungeons/\<your level name>](./data/dg/functions/dungeons/) folder and create a new .mcfunction file for your structure. Take one of the [existing files](./data/dg/functions/dungeons/demo/quad.mcfunction) as a reference. Make sure that you have all eight combinations of `.rotation` and `.mirror`.
+1. Go to the `names.mcfunction` file in your level folder and place a command just like in [dg:dungeons/demo/names.mcfunction](./data/dg/functions/dungeons/demo/names.mcfunction) referencing the marker name as you put it with the name of the new function you just created. 
 
 If you follow these steps the room should be placeable.
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+
+## Transferring rooms between worlds
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+When you want to use rooms that you configured in an old world in a new world, you need to transfer the minecraft structure files and the configuration that is stored in a data storage. 
+
+Structure files:
+1. Go to the save folder of the old world
+1. Go into `generated/<your namespace>/structures`.
+1. Copy the structure files you want to use into the same folder (including subfolders) in the new world.
+
+Data storage:
+1. Make sure, that minecraft opens up an output log when you launch the game. Click [here](https://i.imgur.com/aL8XRaq.png) for a guide for the vanilla client.
+1. Start minecraft and open up the old world.
+1. Execute `/data get storage dg rooms`.
+1. Execute `/data get storage dg levels`.
+1. Open up [this](./data/dg/functions/storage/load_from_other_world.mcfunction) .mcfunction file in the datapack in the new world.
+1. Paste the output of the two commands into the file following the structure of the file.
+1. Save the file and open the new world or if it's already open `/reload` once.
+1. Execute `/function dg:storage/load_from_other_world` to load the data storage in the new world.
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 

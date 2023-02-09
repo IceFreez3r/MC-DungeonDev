@@ -101,14 +101,14 @@ Before building a room, note it MUST follow some rules to avoid collision.
 You can find the rooms of the two demo levels at `1000 0 1000`.
 
 To add a room, which follows these rules, follow these steps.
-1. Use `/function dg:editor/place/door` while facing the door from the inside of the room to place a door. If a door says "S" it is a South facing door and so if you stand at it and face the open air it must say South in the F3 menu. (Use `/function dg:editor/place/exit` to place an exit.)
+1. Use `/function dg:_editor_toolbox.mcfunction` to get the blocks you need.
+1. Place the "Place Door" command block while facing the door from the inside of the room to place a door. If a door says "S" it is a South facing door and so if you stand at it and face the open air it must say South in the F3 menu. (Use "Place Exit" to place an exit.)
 1. Once all doors are placed put a structure block in the positive quadrant. Preferable with an offset of 1,0,1 and all positive Size values. Name it or organize it how you like.
-1. Place a command block, toggle always active and click done. Then re-open it and enter `/function dg:editor/place/room`. Middle click the command block.
-1. Rename your command block to the name you want the room to be recognized with (using anvil), then place it on top of the structure block.
+1. Rename the "Rename me!" command block to the name you want the room to be recognized with (using anvil), then place it on top of the structure block.
 1. The name should appear above the block with a comparator, you can now edit the room by right clicking the comparator.
 1. The doors will now automatically be measured by calculating the left, right, up, down and perpendicular (the one rectangular to the door through the room) block distances from each of the doors. 
 1. The other settings are `level` and `sublevel` which are a pool and subpool the room is in. (see [Levels](#adding-your-own-level)), `weight` which biases the room if its placable, `max` which is how many can be placed (0=infinite), `max_depth` is how far from the start it will be placeable.
-1. After you are done editing the room, enable entities in the structure block and save the structure. Make sure that none of the doors have their name visible. The names come from armorstands, that are just for debugging, but they shouldn't appear in the final structure.
+1. After you are done editing the room, make sure that entities are enabled in the structure block and save the structure. Make sure that none of the doors have their name visible. The names come from armorstands, that are just for debugging, but they shouldn't appear in the final structure.
 1. Go to the [dg:dungeons/\<your level name>](./data/dg/functions/dungeons/) folder and create a new .mcfunction file for your structure. Take one of the [existing files](./data/dg/functions/dungeons/demo/quad.mcfunction) as a reference. Make sure that you have all eight combinations of `.rotation` and `.mirror`.
 1. Go to the `names.mcfunction` file in your level folder and place a command just like in [dg:dungeons/demo/names.mcfunction](./data/dg/functions/dungeons/demo/names.mcfunction) referencing the marker name as you put it with the name of the new function you just created. 
 

@@ -95,7 +95,7 @@ The third sublevel can only be reached from the second sublevel. (But it can go 
 <!-- markdownlint-disable -->
 
 Before building a room, note it MUST follow some rules to avoid collision.
-1. Each room must be at most 32 in any dimension (48^3 not yet supported). Rooms are treated as cubes during placement even if they have large empty parts. After a room is placed, new rooms can overlap with the empty space.
+1. Each room must be at most 48 in any dimension (48^3 not yet supported). Rooms are treated as cubes during placement even if they have large empty parts. After a room is placed, new rooms can overlap with the empty space.
 2. Doors must be placed on the 4 cardinal faces of a room. Not the top face or bottom face. The number of doors per face can be arbitrary. Normal doors have to be placed on the edges of the room, but there are also exit-only doors that can be placed anywhere in the room.
 
 You can find the rooms of the two demo levels at `1000 0 1000`.

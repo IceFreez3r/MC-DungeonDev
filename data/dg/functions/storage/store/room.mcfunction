@@ -11,6 +11,7 @@ execute store result entity @s data.room.sublevel int 1.0 run scoreboard players
 execute store result entity @s data.room.weight int 1.0 run scoreboard players get @s dg.weight
 execute store result entity @s data.room.max int 1.0 run scoreboard players get @s dg.max
 execute store result entity @s data.room.min_depth int 1.0 run scoreboard players get @s dg.min_depth
+execute store result entity @s data.room.max_dimension int 1.0 run scoreboard players get @s dg.max_dimension
 # Doors
 data remove entity @s data.room.doors
 scoreboard players operation .sublevel dg.editor = @s dg.sublevel 

@@ -15,6 +15,7 @@ function dg:build/placement/rotation
 execute as @e[type=marker,tag=dg.door.choice] run function dg:build/placement/mirror
 # calculate lowest corner
 execute as @e[type=marker,tag=dg.door.choice] run function dg:build/placement/lowest_corner/start
+scoreboard players operation @e[type=marker,tag=dg.min_corner,tag=dg.new] dg.max_dimension = @e[type=marker,tag=dg.room.choice,limit=1] dg.max_dimension
 # check if there is enough space
 execute as @e[type=marker,tag=dg.door.choice] run function dg:build/placement/dimensions/start
 execute at @e[type=marker,tag=dg.min_corner,tag=dg.new] run function dg:measure/start

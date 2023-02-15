@@ -7,3 +7,4 @@ execute store result score @s dg.sublevel run data get entity @s data.room.suble
 execute store result score @s dg.weight run data get entity @s data.room.weight
 execute store result score @s dg.max run data get entity @s data.room.max
 execute store result score @s dg.min_depth run data get entity @s data.room.min_depth
+execute store result score @s dg.max_dimension run data get entity @s data.room.max_dimension

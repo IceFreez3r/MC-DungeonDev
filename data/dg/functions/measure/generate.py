@@ -1,14 +1,14 @@
 import os
-def coordinatesToNumber(x, y, z, base = 32):
+def coordinatesToNumber(x, y, z, base = 48):
     return x * base * base + y * base + z
 
-def numberToCoordinates(n, base = 32):
+def numberToCoordinates(n, base = 48):
     x = n // (base * base)
     y = (n - x * base * base) // base
     z = n - x * base * base - y * base
     return x, y, z
 
-def recursionTree(min = 0, max = 32**3, splits = 2):
+def recursionTree(min = 0, max = 48**3, splits = 2):
     if min + 1 >= max:
         return
     else:
@@ -42,7 +42,19 @@ recursionTree(splits=3)
 def volumeCheck(x, y, z):
     os.makedirs(f"tree/x_{x}/y_{y}/", exist_ok=True)
     with open(f"tree/x_{x}/y_{y}/z_{z}.mcfunction", "w") as f:
-        f.write(f"execute if blocks ~ ~ ~ ~{x} ~{y} ~{z} -32 -64 -32 all run scoreboard players set .fits dg.measure 1\n")
+        f.write("execute ")
+        # respect block limit
+        if (x + 1) * (y + 1) * (z + 1) < 32768:
+            f.write(f"if blocks ~ ~ ~ ~{x} ~{y} ~{z} 0 -64 0 all ")
+        elif (x + 1) * (y + 1) * (z + 1) < 2 * 32768:
+            f.write(f"if blocks ~ ~ ~ ~{x} ~{y // 2} ~{z} 0 -64 0 all ")
+            f.write(f"if blocks ~ ~{y // 2 + 1} ~ ~{x} ~{y} ~{z} 0 -64 0 all ")
+        else:
+            f.write(f"if blocks ~ ~ ~ ~{x} ~{y // 2} ~{z // 2} 0 -64 0 all ")
+            f.write(f"if blocks ~ ~{y // 2 + 1} ~ ~{x} ~{y} ~{z // 2} 0 -64 0 all ")
+            f.write(f"if blocks ~ ~ ~{z // 2 + 1} ~{x} ~{y // 2} ~{z} 0 -64 0 all ")
+            f.write(f"if blocks ~ ~{y // 2 + 1} ~{z // 2 + 1} ~{x} ~{y} ~{z} 0 -64 0 all ")
+        f.write("run scoreboard players set .fits dg.measure 1\n")
 
-for i in range(32**3):
+for i in range(48**3):
     volumeCheck(*numberToCoordinates(i))

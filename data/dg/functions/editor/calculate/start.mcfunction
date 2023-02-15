@@ -11,6 +11,9 @@ execute store result score .pZ dg run data get block ~ ~-1 ~ posZ
 execute store result score .sX dg run data get block ~ ~-1 ~ sizeX
 execute store result score .sY dg run data get block ~ ~-1 ~ sizeY
 execute store result score .sZ dg run data get block ~ ~-1 ~ sizeZ
+scoreboard players operation @s dg.max_dimension = .sX dg
+scoreboard players operation @s dg.max_dimension > .sY dg
+scoreboard players operation @s dg.max_dimension > .sZ dg
 
 summon marker ~ ~ ~ {Tags:["dg.calc"]}
 

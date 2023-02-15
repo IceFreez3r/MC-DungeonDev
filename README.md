@@ -50,10 +50,12 @@ To change the general settings how the dungeon is generated, see [this function]
 To add your own level, follow these steps. You can skip this if you just want to add rooms to the existing levels.
 1. Create a new folder in [dg:dungeons/](./data/dg/functions/dungeons/) with the name of your level.
 1. In the folder create a new empty names.mcfunction file and deadend.mcfunction file (if you want to handle deadends).
-1. In [dg:dungeons/place.mcfunction](./data/dg/functions/dungeons/place.mcfunction#L5) add a new line that calls your levels names.mcfunction file.
-1. In [dg:dungeons/root.mcfuntion](./data/dg/functions/dungeons/root.mcfunction#L3) add a new line. Change the name of the marker to the one that is associated with your root.
-1. Add a new line in [dg:dungeons/deadend.mcfunction](./data/dg/functions/dungeons/deadend.mcfunction) if you want to handle deadends.
+1. In [dg:interface/names.mcfunction](./data/dg/functions/interface/names.mcfunction) add a new line that calls your levels names.mcfunction file.
+1. In [dg:interface/root.mcfuntion](./data/dg/functions/interface/root.mcfunction) add a new line. Change the name of the marker to the one that is associated with your root.
+1. Add a new line in [dg:interface/deadend.mcfunction](./data/dg/functions/interface/deadend.mcfunction) if you want to handle deadends.
 1. Ingame run `/scoreboard players add .levels dg.options 1` to let the datapack know that you added a new level.
+
+If you have your own datapack, you can also use the provided [interface](#interface)
 
 After you added some rooms to your level (see [Adding your own room](#adding-your-own-room)), you can run `/scoreboard players set .level dg.options <your level number>` to force the level in every run, which makes it easier to test and debug.
 
@@ -135,6 +137,13 @@ Data storage:
 1. Paste the output of the two commands into the file following the structure of the file.
 1. Save the file and open the new world or if it's already open `/reload` once.
 1. Execute `/function dg:storage/load_from_other_world` to load the data storage in the new world.
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+
+## Interface
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+If you have your own datapack that builds on top of this one, you don't need to modify the code of this datapack. Instead add new function tag files in your own datapack (`dg/tags/functions/interface/`) for `root`, `names` and `deadend` and add the functions you want to be called to the tag files. If you want to override the demo levels set the `replace` tag to `true` and make sure that your datapack is loaded after this one (see [this wiki entry](https://minecraft.fandom.com/wiki/Commands/datapack)).
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 

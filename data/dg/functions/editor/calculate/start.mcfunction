@@ -26,10 +26,10 @@ execute store result entity @e[type=marker,tag=dg.calc,limit=1] Pos[0] double 1.
 execute store result entity @e[type=marker,tag=dg.calc,limit=1] Pos[1] double 1.0 run scoreboard players operation .oY dg += .pY dg
 execute store result entity @e[type=marker,tag=dg.calc,limit=1] Pos[2] double 1.0 run scoreboard players operation .oZ dg += .pZ dg
 
-execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=0},dx=31,dy=31,dz=31,sort=nearest] run function dg:editor/calculate/north
-execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=1},dx=31,dy=31,dz=31,sort=nearest] run function dg:editor/calculate/east
-execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=2},dx=31,dy=31,dz=31,sort=nearest] run function dg:editor/calculate/south
-execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=3},dx=31,dy=31,dz=31,sort=nearest] run function dg:editor/calculate/west
+execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=0},dx=47,dy=47,dz=47,sort=nearest] run function dg:editor/calculate/north
+execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=1},dx=47,dy=47,dz=47,sort=nearest] run function dg:editor/calculate/east
+execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=2},dx=47,dy=47,dz=47,sort=nearest] run function dg:editor/calculate/south
+execute at @e[type=marker,tag=dg.calc] as @e[type=marker,scores={dg.door.direction=3},dx=47,dy=47,dz=47,sort=nearest] run function dg:editor/calculate/west
 
 function dg:storage/store/room
 

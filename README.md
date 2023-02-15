@@ -152,7 +152,7 @@ If you have your own datapack that builds on top of this one, you don't need to 
 <!-- markdownlint-disable -->
 Join the discord if you have any questions. Feel free to ping or dm me (IceFreez3r). I also recommend debugging your rooms to make sure they fit the rules by using the seed tool and editing structures.
 
-If you want to modify the datapack itself, you can enable debug mode by calling `/scoreboard players set .debug dg.options 1`. This will flood your chat with the functions that are called and some additional debug information.
+If you want to modify the datapack itself, you can enable debug mode by calling `/scoreboard players set .debug dg.options 1`. This will reduce the maximum distance between players and expanded doors to 2, which makes it a lot easier to track what happens. It will also flood your chat with the functions that are called and some additional debug information.
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 

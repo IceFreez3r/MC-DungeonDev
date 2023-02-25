@@ -7,3 +7,5 @@ kill @e[type=marker,tag=dg.door.options]
 kill @e[type=marker,tag=dg.origin]
 tag @e[type=marker,tag=dg.current_sublevel] remove dg.current_sublevel
 kill @e[type=marker,tag=dg.door.placeholder]
+
+function #dg:interface/placed_room

@@ -3,9 +3,6 @@ function dg:build/stop
 scoreboard players set .ongoing_run dg.build 1
 function dg:build/reset_statistics
 
-# mark other markers to prevent interference
-tag @e[type=marker] add dg.inactive
-
 function dg:build/air_template
 
 # if a level is specified, use it, otherwise choose a random level
